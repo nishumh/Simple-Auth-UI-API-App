@@ -1,0 +1,27 @@
+<div class="app">
+    <!-- Top Menu (5%) -->
+    <header class="menu">
+      <div class="logo">MyApp</div>
+      <nav>
+        <a routerLink="/home" routerLinkActive="active">Home</a>
+        @if(isLoggedIn$ | async) {
+        <a routerLink="/products" routerLinkActive="active">Products</a>
+        }
+        @if(isAdmin$ | async) {
+        <a routerLink="/admin-only" routerLinkActive="active">Admin Only</a>
+        }
+        @if(isLoggedIn$ | async) {
+        <a routerLink="/login" routerLinkActive="active">Logout</a>
+        } @else {
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        }
+      </nav>
+    </header>
+
+    <!-- Content (95%) -->
+    <main class="content">     
+        <router-outlet></router-outlet>
+    </main>
+  </div>
+
+

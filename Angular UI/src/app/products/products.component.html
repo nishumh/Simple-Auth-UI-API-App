@@ -1,0 +1,27 @@
+<div class="products-container">
+  <div class="products-section">
+    <h1>Products</h1>
+    <p class="subtitle">Browse our available products below.</p>
+
+    @if (isLoading$ | async) {
+      <div class="status-card">
+        <span class="status-icon">⏳</span>
+        <p>Loading products...</p>
+      </div>
+    } @else if (error$ | async) {
+      <div class="status-card error">
+        <span class="status-icon">⚠️</span>
+        <p>Error loading products: {{ error$ | async }}</p>
+      </div>
+    } @else {
+      <div class="card-grid">
+        @for (item of products$ | async; track $index) {
+          <div class="card">
+            <span class="card-icon">📦</span>
+            <h3>{{ item }}</h3>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
