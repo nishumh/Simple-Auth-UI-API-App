@@ -5,10 +5,11 @@ import { selectIsAdmin, selectIsAuthenticated } from '../state/auth.selector';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { ToUpperPipe } from '../../shared/pipes/to-upper.pipe';
 
 @Component({
   selector: 'app-login',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, ToUpperPipe],
   providers: [],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
